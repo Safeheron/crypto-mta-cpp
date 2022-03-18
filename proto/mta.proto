@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package safeheron.proto;
+import "zkp.proto";
+
+message MtaMessageB{
+    string c_b = 1;
+    DLogProof dlog_proof_b = 2;
+    DLogProof dlog_proof_beta_tag = 3;
+}
