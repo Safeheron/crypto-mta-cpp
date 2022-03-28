@@ -1,5 +1,5 @@
 //
-// Created by 何剑虹 on 2020/10/22.
+// Created by Sword03 on 2020/10/22.
 //
 #include "gtest/gtest.h"
 #include "crypto-hash/sha256.h"
@@ -61,118 +61,7 @@ std::map<std::string, std::string> pub2048 = {
         {"g", "a346603c869f5b159fde34715551985ab2fbb2254bf828801b750e422f22d652403e9258aeb65b983070e32dc1b439a91c6593ec8c93896dbf421b5d7d86f7e620bef3010560d29f377257afc2e1d6d396197f2ae80f70fd6741bc2282db8dc38947785e31e23ba0706340ee38f995241e222e92db89c47b0889b44797aae93ebba20d55770b1418b5815595db9c07a7682ab9a0125e54357ab76919eb7ce2818d702729fc28f130b4eb28de0dd5bd4c8d7030945856335a1bf9d3d29d923bde4692b6481ef549bd22b5c2010aecd98efb1fbe895ce4d5212728c9815ce4eae36c4b514b53b01657f29d2010e750526ef9bba5c7d011a6ed82e87fa166794612"}
 };
 
-class MtaTestEnv : public ::testing::Environment{
-    class KeyPair{
-    public:
-        PailPubKey pub;
-        PailPrivKey priv;
-    };
-public:
-    virtual void SetUp(){
-        printf("Environment Set up!");
-    }
-    virtual void TearDown(){
-        printf("Environment Test down");
-    }
-};
-
-MtaTestEnv * mta_env;
-
-TEST(MtaTest, Key_2048_Encrypt10) {
-    std::string s;
-    PailPrivKey pailPriv = CreatePailPrivKey(
-            priv2048["lambda"],
-            priv2048["mu"],
-            priv2048["n"],
-            priv2048["nSqr"],
-            priv2048["p"],
-            priv2048["q"],
-            priv2048["pSqr"],
-            priv2048["qSqr"],
-            priv2048["pMinus1"],
-            priv2048["qMinus1"],
-            priv2048["hp"],
-            priv2048["hq"],
-            priv2048["qInvP"],
-            priv2048["pInvQ"]);
-
-    PailPubKey pailPub = CreatePailPubKey(
-            pub2048["n"],
-            pub2048["g"]);
-
-    const curve::Curve * curv = curve::GetCurveParam(curve::CurveType::SECP256K1);
-    string str;
-    // Party A: a
-    // BN a = RandomBNLt(curv->n);
-    // BN r_lt_pailN = RandomBNLtGcd(pailPub.n());
-    BN a("7be1d6640185ee7f27ee41bac110044b04e0c0cdd13e7ff9dbcd3db284c24543", 16);
-    BN r_lt_pailN("7173ad00cf469b1b55b8dc591c22000fb1ccf36d56feb4ccd03a4327d9f7afe87115675b785634a1d8b3b45c6533b4bba33dfa38fa4a40c7eeab473b5bb177d", 16);
-    r_lt_pailN.ToHexStr(str);
-    std::cout << "r_lt_pailN = " << str << std::endl;
-    BN message_a;
-    mta::construct_message_a_with_R(message_a, pailPub, a, r_lt_pailN);
-    message_a.ToHexStr(str);
-    std::cout << "message_a = " << str << std::endl;
-    a.ToHexStr(str);
-    std::cout << "a = " << str << std::endl;
-
-    // Party B: b
-    // => beta
-    //BN b = RandomBNLt(curv->n);
-    //BN r0_lt_pailN = RandomBNLt(pailPub.n());
-    //BN r1_lt_pailN = RandomBNLt(curv->n);
-    //BN r2_lt_pailN = RandomBNLt(curv->n);
-    BN b("259ce861037d9b623c136aa957c88aa263c9b8c78b9c8030143e606622c8a25a", 16);
-    BN r0_lt_pailN("6c469a0c4291201cf5c581d1f7f1e0e9ecad7b8ab25bf493ab2133172b1664df7c21aa20043fcef9b96ffdd92eee75bca0c762d3e124a41e534bba5429bf429d", 16);
-    BN r1_lt_curveN("3c039238a077794069580bb9db134e76725718796293ffc5ecd74df70e3c4456", 16);
-    BN r2_lt_curveN("e1da77074b8f39ab77c2c2131b775b863dbd72a60e0e54b4a8750cc44fe63294", 16);
-    mta::MessageB message_b;
-    BN beta;
-    r0_lt_pailN.ToHexStr(str);
-    std::cout << "r0_lt_pailN = " << str << std::endl;
-    mta::construct_message_b_with_R(message_b, beta, pailPub, b, message_a, r0_lt_pailN, r1_lt_curveN, r2_lt_curveN);
-    b.ToHexStr(str);
-    std::cout << "b = " << str << std::endl;
-    beta.ToHexStr(str);
-    std::cout << "beta = " << str << std::endl;
-
-    // Party A: b
-    // => alpha
-    BN alpha;
-    EXPECT_TRUE(mta::get_alpha(alpha, message_b, a, pailPriv));
-    alpha.ToHexStr(str);
-    std::cout << "alpha = " << str << std::endl;
-
-    BN left = ( alpha + beta ) % curv->n;
-    BN right = ( a * b ) % curv->n;
-    left.ToHexStr(str);
-    std::cout << "left = " << str << std::endl;
-    right.ToHexStr(str);
-    std::cout << "right = " << str << std::endl;
-    EXPECT_TRUE(left == right);
-
-
-
-    std::string base64;
-    mta::MessageB recovered_message_b;
-    std::string recovered_base64;
-    EXPECT_TRUE(message_b.ToBase64(base64));
-    EXPECT_TRUE(recovered_message_b.FromBase64(base64));
-    EXPECT_TRUE(recovered_message_b.ToBase64(recovered_base64));
-    EXPECT_TRUE((message_b.c_b_ == message_b.c_b_) );
-    EXPECT_TRUE(recovered_base64 == base64 );
-
-    //// json string
-    std::string jsonStr;
-    std::string recovered_jsonStr;
-    EXPECT_TRUE(message_b.ToJsonString(jsonStr));
-    EXPECT_TRUE(recovered_message_b.FromJsonString(jsonStr));
-    EXPECT_TRUE(recovered_message_b.ToJsonString(recovered_jsonStr));
-    EXPECT_TRUE((message_b.c_b_ == message_b.c_b_) );
-    EXPECT_TRUE(recovered_jsonStr == jsonStr );
-}
-
-TEST(MtaTest, RandomTestCase) {
+int main(int argc, char **argv) {
     std::string s;
     PailPrivKey pailPriv = CreatePailPrivKey(
             priv2048["lambda"],
@@ -234,19 +123,9 @@ TEST(MtaTest, RandomTestCase) {
     BN left = ( alpha + beta ) % curv->n;
     BN right = ( a * b ) % curv->n;
     left.ToHexStr(str);
-    std::cout << "left = " << str << std::endl;
+    std::cout << "left  (a + b) = " << str << std::endl;
     right.ToHexStr(str);
-    std::cout << "right = " << str << std::endl;
-    EXPECT_TRUE(left == right);
-}
-
-
-
-int main(int argc, char **argv) {
-    mta_env = new MtaTestEnv();
-    ::testing::AddGlobalTestEnvironment(mta_env);
-    ::testing::InitGoogleTest(&argc, argv);
-    int ret = RUN_ALL_TESTS();
-    google::protobuf::ShutdownProtobufLibrary();
-    return ret;
+    std::cout << "right (a * b) = " << str << std::endl;
+    std::cout << "Verify: " << (left == right) << std::endl;
+    return 0;
 }

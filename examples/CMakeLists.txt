@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(test)
+project(example)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE "Release")
@@ -21,8 +21,8 @@ find_package(CryptoCommitment REQUIRED)
 find_package(CryptoZKP REQUIRED)
 find_package(CryptoMTA REQUIRED)
 
-add_executable(mta-test mta-test.cpp)
-target_include_directories(mta-test PUBLIC
+add_executable(${PROJECT_NAME} example.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC
         ${CryptoBN_INCLUDE_DIRS}
         ${CryptoEncode_INCLUDE_DIRS}
         ${CryptoHash_INCLUDE_DIRS}
@@ -33,7 +33,7 @@ target_include_directories(mta-test PUBLIC
         ${GTEST_INCLUDE_DIRS}
 )
 
-target_link_libraries(mta-test
+target_link_libraries(${PROJECT_NAME}
         CryptoBN
         CryptoEncode
         CryptoHash
