@@ -1,13 +1,7 @@
-//
-// Created by Sword03 on 2020/10/22.
-//
-#include "gtest/gtest.h"
-#include "crypto-hash/sha256.h"
+#include "crypto-bn/bn.h"
 #include "crypto-bn/rand.h"
-#include "crypto-encode/base64.h"
 #include "crypto-curve/curve.h"
 #include "crypto-paillier/pail.h"
-#include "crypto-zkp/zkp.h"
 #include "crypto-mta/mta.h"
 #include "exception/located_exception.h"
 
@@ -21,8 +15,6 @@ using safeheron::pail::CreatePailPubKey;
 using safeheron::pail::CreatePailPrivKey;
 using safeheron::zkp::dlog::DLogProof;
 using namespace safeheron;
-using namespace safeheron::rand;
-using namespace safeheron::encode;
 
 std::map<std::string, std::string> priv2048 = {
         {"lambda", "a346603c869f5b159fde34715551985ab2fbb2254bf828801b750e422f22d652403e9258aeb65b983070e32dc1b439a91c6593ec8c93896dbf421b5d7d86f7e620bef3010560d29f377257afc2e1d6d396197f2ae80f70fd6741bc2282db8dc38947785e31e23ba0706340ee38f995241e222e92db89c47b0889b44797aae93d1fe2f400fe25e95eed238e545d2ba504ae212da3ddd01c4eb6634a4e5d4d765f5dafe0693b03d87dbacac12230e27930593725ae222c11c501b18794fa0d5a283dad49c9fd4a16b54604de5b9aa3d0d36bbe15a5a8d51a20b712245035c290ba0d3cfa701ae665b2f0a153bc8c8da941c676b206b161e9391c152591e9fbf224"},
@@ -86,8 +78,8 @@ int main(int argc, char **argv) {
     const curve::Curve * curv = curve::GetCurveParam(curve::CurveType::SECP256K1);
     string str;
     // Party A: a
-    BN a = RandomBNLt(curv->n);
-    BN r_lt_pailN = RandomBNLtGcd(pailPub.n());
+    BN a = safeheron::rand::RandomBNLt(curv->n);
+    BN r_lt_pailN = safeheron::rand::RandomBNLtCoPrime(pailPub.n());
     r_lt_pailN.ToHexStr(str);
     std::cout << "r_lt_pailN = " << str << std::endl;
     BN message_a;
@@ -99,10 +91,10 @@ int main(int argc, char **argv) {
 
     // Party B: b
     // => beta
-    BN b = RandomBNLt(curv->n);
-    BN r0_lt_pailN = RandomBNLt(pailPub.n());
-    BN r1_lt_curveN = RandomBNLt(curv->n);
-    BN r2_lt_curveN = RandomBNLt(curv->n);
+    BN b = safeheron::rand::RandomBNLt(curv->n);
+    BN r0_lt_pailN = safeheron::rand::RandomBNLt(pailPub.n());
+    BN r1_lt_curveN = safeheron::rand::RandomBNLt(curv->n);
+    BN r2_lt_curveN = safeheron::rand::RandomBNLt(curv->n);
     mta::MessageB message_b;
     BN beta;
     r0_lt_pailN.ToHexStr(str);
@@ -116,7 +108,7 @@ int main(int argc, char **argv) {
     // Party A: b
     // => alpha
     BN alpha;
-    EXPECT_TRUE(mta::get_alpha(alpha, message_b, a, pailPriv));
+    std::cout << "check: " <<  mta::get_alpha(alpha, message_b, a, pailPriv) << std::endl;
     alpha.ToHexStr(str);
     std::cout << "alpha = " << str << std::endl;
 

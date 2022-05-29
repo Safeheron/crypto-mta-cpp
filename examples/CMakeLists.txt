@@ -10,38 +10,22 @@ find_package(PkgConfig REQUIRED)
 pkg_search_module(PROTOBUF REQUIRED protobuf)  # this looks for *.pc file
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
-find_package(GTest REQUIRED)
 #set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
-find_package(CryptoBN REQUIRED)
-find_package(CryptoEncode REQUIRED)
-find_package(CryptoHash REQUIRED)
-find_package(CryptoCurve REQUIRED)
-find_package(CryptoCommitment REQUIRED)
-find_package(CryptoZKP REQUIRED)
 find_package(CryptoMTA REQUIRED)
 
-add_executable(${PROJECT_NAME} example.cpp)
-target_include_directories(${PROJECT_NAME} PUBLIC
-        ${CryptoBN_INCLUDE_DIRS}
-        ${CryptoEncode_INCLUDE_DIRS}
-        ${CryptoHash_INCLUDE_DIRS}
-        ${CryptoCommitment_INCLUDE_DIRS}
-        ${CryptoZKP_INCLUDE_DIRS}
-        ${CryptoMTA_INCLUDE_DIRS}
+add_executable(example example.cpp)
+target_include_directories(example PUBLIC
         ${OPENSSL_INCLUDE_DIR}
-        ${GTEST_INCLUDE_DIRS}
+        ${CryptoMTA_INCLUDE_DIRS}
+        /usr/local/include  # This directory is included default on linux but not on Mac os
 )
 
-target_link_libraries(${PROJECT_NAME}
-        CryptoBN
-        CryptoEncode
-        CryptoHash
-        CryptoCurve
-        CryptoCommitment
-        CryptoZKP
+# This directory is included default on linux but not on Mac os
+target_link_directories(example PUBLIC /usr/local/lib)
+target_link_libraries(example
+        OpenSSL::Crypto
         CryptoMTA
-        ${GTEST_BOTH_LIBRARIES}
         ${PROTOBUF_LINK_LIBRARIES}
         pthread )
 
