@@ -5,50 +5,43 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-
-extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DLogProof_zkp_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DLogProof_zkp_2eproto;
 namespace safeheron {
 namespace proto {
 class MtaMessageBDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MtaMessageB> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MtaMessageB> _instance;
 } _MtaMessageB_default_instance_;
 }  // namespace proto
 }  // namespace safeheron
-static void InitDefaultsMtaMessageB_mta_2eproto() {
+static void InitDefaultsscc_info_MtaMessageB_mta_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::safeheron::proto::_MtaMessageB_default_instance_;
     new (ptr) ::safeheron::proto::MtaMessageB();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::safeheron::proto::MtaMessageB::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_MtaMessageB_mta_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsMtaMessageB_mta_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MtaMessageB_mta_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_MtaMessageB_mta_2eproto}, {
       &scc_info_DLogProof_zkp_2eproto.base,}};
 
-void InitDefaults_mta_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_MtaMessageB_mta_2eproto.base);
-}
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_mta_2eproto[1];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_mta_2eproto = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_mta_2eproto = nullptr;
 
-::google::protobuf::Metadata file_level_metadata_mta_2eproto[1];
-constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_mta_2eproto = nullptr;
-constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_mta_2eproto = nullptr;
-
-const ::google::protobuf::uint32 TableStruct_mta_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_mta_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::MtaMessageB, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -58,105 +51,88 @@ const ::google::protobuf::uint32 TableStruct_mta_2eproto::offsets[] PROTOBUF_SEC
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::MtaMessageB, dlog_proof_b_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::MtaMessageB, dlog_proof_beta_tag_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::safeheron::proto::MtaMessageB)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::safeheron::proto::_MtaMessageB_default_instance_),
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::_MtaMessageB_default_instance_),
 };
 
-::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_mta_2eproto = {
-  {}, AddDescriptors_mta_2eproto, "mta.proto", schemas,
-  file_default_instances, TableStruct_mta_2eproto::offsets,
-  file_level_metadata_mta_2eproto, 1, file_level_enum_descriptors_mta_2eproto, file_level_service_descriptors_mta_2eproto,
-};
-
-const char descriptor_table_protodef_mta_2eproto[] =
+const char descriptor_table_protodef_mta_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\tmta.proto\022\017safeheron.proto\032\tzkp.proto\""
   "\205\001\n\013MtaMessageB\022\013\n\003c_b\030\001 \001(\t\0220\n\014dlog_pro"
   "of_b\030\002 \001(\0132\032.safeheron.proto.DLogProof\0227"
   "\n\023dlog_proof_beta_tag\030\003 \001(\0132\032.safeheron."
   "proto.DLogProofb\006proto3"
   ;
-::google::protobuf::internal::DescriptorTable descriptor_table_mta_2eproto = {
-  false, InitDefaults_mta_2eproto, 
-  descriptor_table_protodef_mta_2eproto,
-  "mta.proto", &assign_descriptors_table_mta_2eproto, 183,
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_mta_2eproto_deps[1] = {
+  &::descriptor_table_zkp_2eproto,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mta_2eproto_sccs[1] = {
+  &scc_info_MtaMessageB_mta_2eproto.base,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_mta_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_mta_2eproto = {
+  false, false, descriptor_table_protodef_mta_2eproto, "mta.proto", 183,
+  &descriptor_table_mta_2eproto_once, descriptor_table_mta_2eproto_sccs, descriptor_table_mta_2eproto_deps, 1, 1,
+  schemas, file_default_instances, TableStruct_mta_2eproto::offsets,
+  file_level_metadata_mta_2eproto, 1, file_level_enum_descriptors_mta_2eproto, file_level_service_descriptors_mta_2eproto,
 };
 
-void AddDescriptors_mta_2eproto() {
-  static constexpr ::google::protobuf::internal::InitFunc deps[1] =
-  {
-    ::AddDescriptors_zkp_2eproto,
-  };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_mta_2eproto, deps, 1);
-}
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_mta_2eproto = []() { AddDescriptors_mta_2eproto(); return true; }();
+static bool dynamic_init_dummy_mta_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_mta_2eproto)), true);
 namespace safeheron {
 namespace proto {
 
 // ===================================================================
 
-void MtaMessageB::InitAsDefaultInstance() {
-  ::safeheron::proto::_MtaMessageB_default_instance_._instance.get_mutable()->dlog_proof_b_ = const_cast< ::safeheron::proto::DLogProof*>(
-      ::safeheron::proto::DLogProof::internal_default_instance());
-  ::safeheron::proto::_MtaMessageB_default_instance_._instance.get_mutable()->dlog_proof_beta_tag_ = const_cast< ::safeheron::proto::DLogProof*>(
-      ::safeheron::proto::DLogProof::internal_default_instance());
-}
-class MtaMessageB::HasBitSetters {
+class MtaMessageB::_Internal {
  public:
   static const ::safeheron::proto::DLogProof& dlog_proof_b(const MtaMessageB* msg);
   static const ::safeheron::proto::DLogProof& dlog_proof_beta_tag(const MtaMessageB* msg);
 };
 
 const ::safeheron::proto::DLogProof&
-MtaMessageB::HasBitSetters::dlog_proof_b(const MtaMessageB* msg) {
+MtaMessageB::_Internal::dlog_proof_b(const MtaMessageB* msg) {
   return *msg->dlog_proof_b_;
 }
 const ::safeheron::proto::DLogProof&
-MtaMessageB::HasBitSetters::dlog_proof_beta_tag(const MtaMessageB* msg) {
+MtaMessageB::_Internal::dlog_proof_beta_tag(const MtaMessageB* msg) {
   return *msg->dlog_proof_beta_tag_;
 }
 void MtaMessageB::clear_dlog_proof_b() {
-  if (GetArenaNoVirtual() == nullptr && dlog_proof_b_ != nullptr) {
+  if (GetArena() == nullptr && dlog_proof_b_ != nullptr) {
     delete dlog_proof_b_;
   }
   dlog_proof_b_ = nullptr;
 }
 void MtaMessageB::clear_dlog_proof_beta_tag() {
-  if (GetArenaNoVirtual() == nullptr && dlog_proof_beta_tag_ != nullptr) {
+  if (GetArena() == nullptr && dlog_proof_beta_tag_ != nullptr) {
     delete dlog_proof_beta_tag_;
   }
   dlog_proof_beta_tag_ = nullptr;
 }
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MtaMessageB::kCBFieldNumber;
-const int MtaMessageB::kDlogProofBFieldNumber;
-const int MtaMessageB::kDlogProofBetaTagFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-MtaMessageB::MtaMessageB()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+MtaMessageB::MtaMessageB(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:safeheron.proto.MtaMessageB)
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.MtaMessageB)
 }
 MtaMessageB::MtaMessageB(const MtaMessageB& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  c_b_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.c_b().size() > 0) {
-    c_b_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.c_b_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  c_b_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_c_b().empty()) {
+    c_b_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_c_b(), 
+      GetArena());
   }
-  if (from.has_dlog_proof_b()) {
+  if (from._internal_has_dlog_proof_b()) {
     dlog_proof_b_ = new ::safeheron::proto::DLogProof(*from.dlog_proof_b_);
   } else {
     dlog_proof_b_ = nullptr;
   }
-  if (from.has_dlog_proof_beta_tag()) {
+  if (from._internal_has_dlog_proof_beta_tag()) {
     dlog_proof_beta_tag_ = new ::safeheron::proto::DLogProof(*from.dlog_proof_beta_tag_);
   } else {
     dlog_proof_beta_tag_ = nullptr;
@@ -165,268 +141,147 @@ MtaMessageB::MtaMessageB(const MtaMessageB& from)
 }
 
 void MtaMessageB::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_MtaMessageB_mta_2eproto.base);
-  c_b_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&dlog_proof_b_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&dlog_proof_beta_tag_) -
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MtaMessageB_mta_2eproto.base);
+  c_b_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&dlog_proof_b_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&dlog_proof_beta_tag_) -
       reinterpret_cast<char*>(&dlog_proof_b_)) + sizeof(dlog_proof_beta_tag_));
 }
 
 MtaMessageB::~MtaMessageB() {
   // @@protoc_insertion_point(destructor:safeheron.proto.MtaMessageB)
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 void MtaMessageB::SharedDtor() {
-  c_b_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  c_b_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete dlog_proof_b_;
   if (this != internal_default_instance()) delete dlog_proof_beta_tag_;
 }
 
+void MtaMessageB::ArenaDtor(void* object) {
+  MtaMessageB* _this = reinterpret_cast< MtaMessageB* >(object);
+  (void)_this;
+}
+void MtaMessageB::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void MtaMessageB::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const MtaMessageB& MtaMessageB::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_MtaMessageB_mta_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MtaMessageB_mta_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void MtaMessageB::Clear() {
 // @@protoc_insertion_point(message_clear_start:safeheron.proto.MtaMessageB)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  c_b_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && dlog_proof_b_ != nullptr) {
+  c_b_.ClearToEmpty();
+  if (GetArena() == nullptr && dlog_proof_b_ != nullptr) {
     delete dlog_proof_b_;
   }
   dlog_proof_b_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && dlog_proof_beta_tag_ != nullptr) {
+  if (GetArena() == nullptr && dlog_proof_beta_tag_ != nullptr) {
     delete dlog_proof_beta_tag_;
   }
   dlog_proof_beta_tag_ = nullptr;
-  _internal_metadata_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* MtaMessageB::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<MtaMessageB*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* MtaMessageB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // string c_b = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("safeheron.proto.MtaMessageB.c_b");
-        object = msg->mutable_c_b();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_c_b();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.MtaMessageB.c_b"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // .safeheron.proto.DLogProof dlog_proof_b = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::safeheron::proto::DLogProof::_InternalParse;
-        object = msg->mutable_dlog_proof_b();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dlog_proof_b(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // .safeheron.proto.DLogProof dlog_proof_beta_tag = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::safeheron::proto::DLogProof::_InternalParse;
-        object = msg->mutable_dlog_proof_beta_tag();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dlog_proof_beta_tag(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool MtaMessageB::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:safeheron.proto.MtaMessageB)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string c_b = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_c_b()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->c_b().data(), static_cast<int>(this->c_b().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "safeheron.proto.MtaMessageB.c_b"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .safeheron.proto.DLogProof dlog_proof_b = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_dlog_proof_b()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .safeheron.proto.DLogProof dlog_proof_beta_tag = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_dlog_proof_beta_tag()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
 success:
-  // @@protoc_insertion_point(parse_success:safeheron.proto.MtaMessageB)
-  return true;
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:safeheron.proto.MtaMessageB)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void MtaMessageB::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:safeheron.proto.MtaMessageB)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string c_b = 1;
-  if (this->c_b().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->c_b().data(), static_cast<int>(this->c_b().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "safeheron.proto.MtaMessageB.c_b");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->c_b(), output);
-  }
-
-  // .safeheron.proto.DLogProof dlog_proof_b = 2;
-  if (this->has_dlog_proof_b()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, HasBitSetters::dlog_proof_b(this), output);
-  }
-
-  // .safeheron.proto.DLogProof dlog_proof_beta_tag = 3;
-  if (this->has_dlog_proof_beta_tag()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, HasBitSetters::dlog_proof_beta_tag(this), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:safeheron.proto.MtaMessageB)
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 
-::google::protobuf::uint8* MtaMessageB::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* MtaMessageB::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.MtaMessageB)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string c_b = 1;
   if (this->c_b().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->c_b().data(), static_cast<int>(this->c_b().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_c_b().data(), static_cast<int>(this->_internal_c_b().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "safeheron.proto.MtaMessageB.c_b");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->c_b(), target);
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_c_b(), target);
   }
 
   // .safeheron.proto.DLogProof dlog_proof_b = 2;
   if (this->has_dlog_proof_b()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        2, HasBitSetters::dlog_proof_b(this), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::dlog_proof_b(this), target, stream);
   }
 
   // .safeheron.proto.DLogProof dlog_proof_beta_tag = 3;
   if (this->has_dlog_proof_beta_tag()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        3, HasBitSetters::dlog_proof_beta_tag(this), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::dlog_proof_beta_tag(this), target, stream);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.MtaMessageB)
   return target;
@@ -436,50 +291,49 @@ size_t MtaMessageB::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:safeheron.proto.MtaMessageB)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string c_b = 1;
   if (this->c_b().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->c_b());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_c_b());
   }
 
   // .safeheron.proto.DLogProof dlog_proof_b = 2;
   if (this->has_dlog_proof_b()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *dlog_proof_b_);
   }
 
   // .safeheron.proto.DLogProof dlog_proof_beta_tag = 3;
   if (this->has_dlog_proof_beta_tag()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *dlog_proof_beta_tag_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void MtaMessageB::MergeFrom(const ::google::protobuf::Message& from) {
+void MtaMessageB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.MtaMessageB)
   GOOGLE_DCHECK_NE(&from, this);
   const MtaMessageB* source =
-      ::google::protobuf::DynamicCastToGenerated<MtaMessageB>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MtaMessageB>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.MtaMessageB)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.MtaMessageB)
     MergeFrom(*source);
@@ -489,23 +343,22 @@ void MtaMessageB::MergeFrom(const ::google::protobuf::Message& from) {
 void MtaMessageB::MergeFrom(const MtaMessageB& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.MtaMessageB)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.c_b().size() > 0) {
-
-    c_b_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.c_b_);
+    _internal_set_c_b(from._internal_c_b());
   }
   if (from.has_dlog_proof_b()) {
-    mutable_dlog_proof_b()->::safeheron::proto::DLogProof::MergeFrom(from.dlog_proof_b());
+    _internal_mutable_dlog_proof_b()->::safeheron::proto::DLogProof::MergeFrom(from._internal_dlog_proof_b());
   }
   if (from.has_dlog_proof_beta_tag()) {
-    mutable_dlog_proof_beta_tag()->::safeheron::proto::DLogProof::MergeFrom(from.dlog_proof_beta_tag());
+    _internal_mutable_dlog_proof_beta_tag()->::safeheron::proto::DLogProof::MergeFrom(from._internal_dlog_proof_beta_tag());
   }
 }
 
-void MtaMessageB::CopyFrom(const ::google::protobuf::Message& from) {
+void MtaMessageB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.MtaMessageB)
   if (&from == this) return;
   Clear();
@@ -523,35 +376,31 @@ bool MtaMessageB::IsInitialized() const {
   return true;
 }
 
-void MtaMessageB::Swap(MtaMessageB* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void MtaMessageB::InternalSwap(MtaMessageB* other) {
   using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  c_b_.Swap(&other->c_b_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(dlog_proof_b_, other->dlog_proof_b_);
-  swap(dlog_proof_beta_tag_, other->dlog_proof_beta_tag_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  c_b_.Swap(&other->c_b_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(MtaMessageB, dlog_proof_beta_tag_)
+      + sizeof(MtaMessageB::dlog_proof_beta_tag_)
+      - PROTOBUF_FIELD_OFFSET(MtaMessageB, dlog_proof_b_)>(
+          reinterpret_cast<char*>(&dlog_proof_b_),
+          reinterpret_cast<char*>(&other->dlog_proof_b_));
 }
 
-::google::protobuf::Metadata MtaMessageB::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_mta_2eproto);
-  return ::file_level_metadata_mta_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata MtaMessageB::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace proto
 }  // namespace safeheron
-namespace google {
-namespace protobuf {
+PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::safeheron::proto::MtaMessageB* Arena::CreateMaybeMessage< ::safeheron::proto::MtaMessageB >(Arena* arena) {
-  return Arena::CreateInternal< ::safeheron::proto::MtaMessageB >(arena);
+  return Arena::CreateMessageInternal< ::safeheron::proto::MtaMessageB >(arena);
 }
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 #include <google/protobuf/port_undef.inc>
