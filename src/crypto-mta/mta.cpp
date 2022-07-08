@@ -50,11 +50,9 @@ void construct_message_b_with_R(MessageB &message_b, BN &beta, const pail::PailP
     const curve::Curve * curv = curve::GetCurveParam(curve::CurveType::SECP256K1);
     const BN& c_a = message_a;
     const BN& beta_tag = r0_lt_pailN;
-    string str;
-    //beta_tag.ToHexStr(str);
-    //std::cout << "beta_tag: " << str << std::endl;
-    BN bma = pail_pub.Mul(c_a, input_b);
-    BN c_b = pail_pub.AddPlain(bma, beta_tag);
+
+    BN bma = pail_pub.HomomorphicMulPlain(c_a, input_b);
+    BN c_b = pail_pub.HomomorphicAddPlain(bma, beta_tag);
 
     DLogProof dlog_proof(curve::CurveType::SECP256K1);
     dlog_proof.ProveWithR(input_b, r1_lt_curveN);
@@ -62,10 +60,7 @@ void construct_message_b_with_R(MessageB &message_b, BN &beta, const pail::PailP
     dlog_proof.ProveWithR(beta_tag, r2_lt_curveN);
     message_b.dlog_proof_beta_tag_ = dlog_proof;
     message_b.c_b_ = c_b;
-    //beta_tag.ToHexStr(str);
-    //std::cout << "beta_tag: " << str << std::endl;
-    //curv->n.ToHexStr(str);
-    //std::cout << "curve.n: " << str << std::endl;
+
     beta = beta_tag.Neg() % curv->n;
 }
 
